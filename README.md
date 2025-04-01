@@ -1,2 +1,2 @@
 # cliTaskTrackerJava
-## code is inefficient. Will be improved further.
+## Simple cli task tracker 
