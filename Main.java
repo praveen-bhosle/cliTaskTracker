@@ -1,33 +1,6 @@
 import java.io.* ;
-import com.fasterxml.jackson.databind.ObjectMapper ;  
 import java.util.* ; 
 
-enum Status {  
- DONE ,  
- NOT_STARTED ,  
- IN_PROGRESS 
-} 
-
-
- class Task {  
- public  int id ; 
- public   String title ;  
- public   Status status ; 
-
- public Task() { }   
- public Task(int  id , String title , Status status ) {  
-  this.id = id  ; 
-  this.title = title ; 
-  this.status = status ; 
- }   
-}
-
- class  TasksObject {  
-  public ArrayList<Task>  tasks ; 
-  public TasksObject() {  
-   this.tasks = new  ArrayList<Task>() ;  
-  } 
-} 
 
 class Main {  
  public static void  main(String[] args)   {   
@@ -37,18 +10,19 @@ class Main {
  return ;
  } 
      
- String command = args[0] ; 
+
+String command = args[0] ; 
+
 
  String filename = "tasks.json" ;  
 
- File fileObj = new File(filename) ; 
 
- 
- ObjectMapper  objectMapper = new ObjectMapper() ;  
+
  
  TasksObject tasksObject = new TasksObject()   ; 
 
  int start  = 0  ; 
+
 
  ArrayList<Task> tasks = new ArrayList<Task>() ;  
 
