@@ -25,51 +25,48 @@ public class FileHandler {
  } 
 
 
-public boolean  checkFileExists() {  
- 
-
-
+public boolean  checkFileExists() { 
+if(file.isFile() ) {  
+ return true ; 
+} 
+return false ;
 } 
 
 
 
 
-public String   createFile() {   
+public Status createFile() {   
 try { 
   if(file.createNewFile()) {  
-  String msg = "File created "; 
-  return  msg ; 
+  System.out.println("File created"); 
+  return  Status.SUCCESS  ; 
   } 
   else {   
-   String msg = "File already exists. "; 
-  return  msg ; 
+  System.out.println("File already exists.") ;  
+  return Status.FAILURE ;  
   } 
  } 
  catch(IOException e) {  
-   String msg = "Error occured while creating the file" ; 
-   return  msg ; 
+   System.out.println("Error occured while creating the file") ;  
+   return Success.FAILURE ; 
   } 
  }
 
-  public File  getFileObject() {  
-       return  file ;  
+ public File  getFileObject() {  
+    return  file ;  
  } 
 
- public String editFile( String content) {  
+ public Status editFile( String content) {  
    
   try { 
-
- 
    fileWriter.write(content) ; 
-
-   myWriter.close() ; 
    String msg = "File edited." 
-   return  msg ; 
+   return Status.SUCCESS ; 
   } 
-
   catch(IOException e) { 
-   String msg = "Error occured while editing the file" 
-   return  msg ;     
+   System.out.println("Error occured while editing the file") ; 
+
+   return STATUS.FAILURE  ;     
   } 
  } 
 
